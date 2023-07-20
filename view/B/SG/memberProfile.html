@@ -70,16 +70,17 @@
                                 }
                             }
                         }
-                                         
-                            htmlTxt += '<h5>Order #' + (1) + '</h5>';
+                        console.log("I am here " +orderIdList)
+                        console.log("I am here " +boughtItem)              
+                           
                             var counter = 0;
                             //get bought items by order ID
                             for (j = 0; j < boughtItem.length; j++) {
                             
-                                if(boughtItem[j].id == orderIdList[0]) {
+                                if(boughtItem[j].id == orderIdList[counter]) {
                                     var item = boughtItem[j];
                                     //display top level info
-                                    if(counter == 0) {
+                                    htmlTxt += '<h5>Order #' + (counter + 1) + '</h5>';
                                         let options = {
                                             weekday: "long", year: "numeric", month: "long",  
                                             day: "numeric", hour: "2-digit", minute: "2-digit"  
@@ -94,11 +95,7 @@
                                             <h6>Postal Code: ' + item.postalCode + '</h6>\
                                             <h6>Name: ' + item.customerName + '</h6>\
                                             <h6>Contact Number: ' + item.phone + '</h6>';
-                                        counter++;
-                                    }
-                                }
-                            }
-                            //display table info
+                                            //display table info
                             htmlTxt += '\
                                 <div class="row">\
                                     <div class="col-md-12">\
@@ -119,7 +116,7 @@
                                                             <tbody>';
                             for (y = 0; y < boughtItem.length; y++) {
                             
-                                if (boughtItem[y].id == orderIdList[0]) {
+                                if (boughtItem[y].id == orderIdList[counter]) {
                                     var product = boughtItem[y];
                                     htmlTxt += '\
                                         <tr class="cart_table_item">\
@@ -162,8 +159,10 @@
                                     </div>\
                                 </div>';
                             finalPrice = 0;
-
-                        htmlTxt += '<h4 style="font-weight: bold; padding-left: 20px">Total Amount Spent: $'+ overallPrice + '</h4>';
+                                        counter++;
+                                }
+                            }
+                            htmlTxt += '<h4 style="font-weight: bold; padding-left: 20px">Total Amount Spent: $'+ overallPrice + '</h4>';
                         document.getElementById("salesHistoryTab").innerHTML = htmlTxt;
                     }
                 }).catch(function(error) {
