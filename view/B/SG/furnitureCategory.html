@@ -15,9 +15,9 @@
                     return response.json();
                 }).then(function (data) {
                     var htmlTxt = '';
-                   
-                        var furniture = data[0];
+                        console.log(data)
                         //generate html for furnitures
+                        data.forEach(furniture => {
                         htmlTxt += '\
                             <li class="col-md-3 col-sm-6 col-xs-12 product" style="padding-bottom: 1%;padding-top: 2%;">\
                                 <span class="product-thumb-info">\
@@ -56,6 +56,7 @@
                                 '\')">Add To Cart</button>';
                         }
                         htmlTxt += '</span></span></li>';
+                    })
                    
                     document.getElementById("furnituresDisplay").innerHTML = htmlTxt;
                     document.getElementById("categoryTitle").innerHTML = cat;
