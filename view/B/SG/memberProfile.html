@@ -291,6 +291,24 @@
             function pdpaWindow() {
                 var myWindow = window.open("pdpa.html");
             }
+
+            function resetDetails(){
+                memberName = sessionStorage.getItem("memberName");
+                memberEmail = sessionStorage.getItem("memberEmail");
+                document.getElementById("name").value = memberName;
+                document.getElementById("email").value = memberEmail;
+                document.getElementById("phone").value = member.phone;
+                document.getElementById("country").value = member.city;
+                document.getElementById("address").value = member.address;
+                document.getElementById("securityQuestion").value = member.securityQuestion;
+                document.getElementById("securityAnswer").value = member.securityAnswer;
+                document.getElementById("age").value = member.age;
+                document.getElementById("income").value = member.income;
+
+                document.getElementById("password").value = "";
+                document.getElementById("repassword").value = "";
+                document.getElementById("oldPassword").value = ""
+            }
         </script>
         <script src="menu2.js"></script>
         <div role="main" class="main">
@@ -633,7 +651,7 @@
                                             <div class="row">
                                                 <div class="form-group">
                                                     <input type="submit" onclick="submitForm()" value="Submit" class="btn btn-primary"/>
-                                                    <input type="reset" value="Reset" class="btn btn-primary"/>
+                                                    <input type="submit" onclick="resetDetails()" value="Reset" class="btn btn-primary"/>
                                                 </div>
                                             </div>
                                         </div>
